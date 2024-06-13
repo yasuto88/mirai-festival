@@ -1,18 +1,14 @@
+/** reduxで扱うユーザー情報の型 */
 export type User = {
-  student_id: number | null; // 学籍番号
-  balance: number; // 残高
-  is_admin: boolean; // 管理者かどうか
-  items: Item[] | null; // 商品リスト
+  student_id: string;
+  balance: number;
+  possession_list: Item[];
+  isAdmin: boolean;
 };
 
+/** reduxで扱うアイテム情報の型 */
 export type Item = {
-  item_id: number; // 商品ID
-  name: string; // 商品名
-  quantity: number; // 数量
+  product_id: number;
+  product_name: string;
+  quantity: number;
 };
-
-export interface UserState {
-  user: User | null;
-  loading: boolean;
-  error: string | null;
-}

@@ -3,32 +3,23 @@ import { RootState } from "../store";
 
 const userSelector = (state: RootState) => state.user;
 
-export const loadUserId = createSelector(
-  [userSelector],
-  (userState) => userState.user?.student_id
-);
+/** ユーザー情報の取得 */
+export const loadUser = createSelector([userSelector], (user) => user);
 
+/** ユーザーバランスの取得 */
 export const loadUserBalance = createSelector(
   [userSelector],
-  (userState) => userState.user?.balance
+  (state) => state.balance
 );
 
-export const isAdmin = createSelector(
-  [userSelector],
-  (userState) => userState.user?.is_admin
-);
-
+/** ユーザー所持アイテムリストの取得 */
 export const loadUserItems = createSelector(
   [userSelector],
-  (userState) => userState.user?.items
+  (state) => state.possession_list
 );
 
-export const isLoading = createSelector(
+/** 管理者かどうかの状態を取得 */
+export const loadIsAdmin = createSelector(
   [userSelector],
-  (userState) => userState.loading
-);
-
-export const getError = createSelector(
-  [userSelector],
-  (userState) => userState.error
+  (state) => state.isAdmin
 );

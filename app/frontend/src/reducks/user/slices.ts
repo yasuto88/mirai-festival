@@ -1,46 +1,38 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { User } from "./types";
-import { initialFetchUserState } from "./initializes";
+import type { User, Item } from "./types";
+import { initialUserState } from "./initialState";
 
+/**
+ * ユーザー情報のスライス
+ */
 const userSlice = createSlice({
   name: "user",
-  initialState: initialFetchUserState,
+  initialState: initialUserState,
   reducers: {
-    setUser(state, action: PayloadAction<User>) {
-      state.user = action.payload;
-      state.loading = false;
-      state.error = null;
+    signInAction: (state: User, action: PayloadAction<User>) => {
+      const updatedData = { ...state, ...action.payload };
+      return updatedData;
     },
-    updateUserBalance(state, action: PayloadAction<number>) {
-      if (state.user) {
-        state.user.balance = action.payload;
+    addItemAction: (state: User, action: PayloadAction<Item>) => {
+      const item = action.payload;
+      const existingItem = state.possession_list.find(
+        (i) => i.product_id === item.product_id
+      );
+      if (existingItem) {
+        existingItem.quantity += item.quantity;
+      } else {
+        state.possession_list.push(item);
       }
     },
-    setAdminStatus(state, action: PayloadAction<boolean>) {
-      if (state.user) {
-        state.user.is_admin = action.payload;
-      }
-    },
-    updateUserItems(state, action: PayloadAction<User["items"]>) {
-      if (state.user) {
-        state.user.items = action.payload;
-      }
-    },
-    setLoading(state, action: PayloadAction<boolean>) {
-      state.loading = action.payload;
-    },
-    setError(state, action: PayloadAction<string | null>) {
-      state.error = action.payload;
+    updateBalanceAction: (state: User, action: PayloadAction<number>) => {
+      state.balance = action.payload;
     },
   },
 });
 
-export const {
-  setUser,
-  updateUserBalance,
-  setAdminStatus,
-  updateUserItems,
-  setLoading,
-  setError,
-} = userSlice.actions;
+// actionをエクスポート
+export const { signInAction, addItemAction, updateBalanceAction } =
+  userSlice.actions;
+
+// reducerをエクスポート
 export default userSlice.reducer;

@@ -3,15 +3,11 @@ import { Box, Sheet } from "@mui/joy";
 import { UserProfile } from "../../uniqueParts/UserProfile";
 import { QRCodeScanner } from "../../uniqueParts/QRCodeScanner";
 import { ItemTable } from "../../uniqueParts/ItemTable";
+import { User } from "../../../reducks/user";
 
-type UserItem = {
-  name: string;
-  quantity: number;
-};
+type Props = User;
 
-type Props = {};
-
-const UserPagePresenter: React.FC<Props> = () => (
+const UserPagePresenter: React.FC<Props> = (props) => (
   <Sheet
     sx={{
       maxWidth: 300,
@@ -25,9 +21,9 @@ const UserPagePresenter: React.FC<Props> = () => (
     }}
     variant="outlined"
   >
-    <UserProfile />
-    <ItemTable />
-    <QRCodeScanner />
+    {/* <UserProfile {...props} />
+    <ItemTable {...props} />
+    <QRCodeScanner {...props} /> */}
   </Sheet>
 );
 

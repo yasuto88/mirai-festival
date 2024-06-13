@@ -1,131 +1,92 @@
-import { Action, ThunkAction } from "@reduxjs/toolkit";
 import { Dispatch } from "react";
-import {
-  setUser,
-  updateUserBalance,
-  setAdminStatus,
-  updateUserItems,
-  setLoading,
-  setError,
-} from "./slices";
-import { User, Item } from "./types";
-import { RootState } from "../store";
+import { signInAction, addItemAction, updateBalanceAction } from "./slices";
+import type { User, Item } from "./types";
 
-// ユーザーログイン
-export const signIn = (
-  student_id: number,
-  is_admin: boolean
-): ThunkAction<void, RootState, unknown, Action<string>> => {
-  return async (dispatch: Dispatch<Action>) => {
-    dispatch(setLoading(true));
-    const userData: User = { student_id, balance: 0, is_admin, items: [] };
-    try {
-      const userData: User = {
-        student_id,
-        balance: 0,
-        is_admin,
-        items: [
-          { item_id: 1, name: "勇者の剣", quantity: 1 },
-          { item_id: 2, name: "魔法の杖", quantity: 2 },
-        ],
-      };
-      localStorage.setItem("user", JSON.stringify(userData.student_id));
-      dispatch(setUser(userData));
-    } catch (error) {
-      if (error instanceof Error) {
-        dispatch(setError(error.message));
-      }
-    } finally {
-      dispatch(setLoading(false));
+/**
+ * サインイン処理
+ */
+export function signIn(student_id: string) {
+  return async (dispatch: Dispatch<any>) => {
+    const response = await fetch(`/api/users/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ student_id }),
+    });
+    const data = await response.json();
+    if (response.ok) {
+      dispatch(signInAction(data));
+    } else {
+      console.error("User login failed");
     }
   };
-};
+}
 
-export const signOut = (): ThunkAction<
-  void,
-  RootState,
-  unknown,
-  Action<string>
-> => {
-  return (dispatch: Dispatch<Action>) => {
-    dispatch(setLoading(true));
-    try {
-      localStorage.removeItem("user");
-      dispatch(
-        setUser({ student_id: null, balance: 0, is_admin: false, items: null })
-      );
-    } catch (error) {
-      if (error instanceof Error) {
-        dispatch(setError(error.message));
-      }
-    } finally {
-      dispatch(setLoading(false));
+/**
+ * 管理者ログイン処理
+ */
+export function loginAdmin(admin_id: string, password: string) {
+  return async (dispatch: Dispatch<any>) => {
+    const response = await fetch(`/api/admins/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ admin_id, password }),
+    });
+    const data = await response.json();
+    if (response.ok) {
+      dispatch(signInAction(data));
+    } else {
+      console.error("Admin login failed");
     }
   };
-};
-// ユーザーログアウト
-// export const signOut = () => {
-//   return async (dispatch: Dispatch<Action>) => {
-//     try {
-//       // ログアウト処理を追加してください
-//       localStorage.removeItem("user");
-//       dispatch(
-//         setUser({ student_id: null, balance: 0, is_admin: false, items: null })
-//       );
-//     } catch (error) {
-//       if (error instanceof Error) {
-//         throw new Error(error.message);
-//       }
-//     }
-//   };
-// };
+}
 
-// 管理者認証
-export const authenticateAdmin = (student_id: number, password: string) => {
-  return async (dispatch: Dispatch<Action>) => {
-    try {
-      // 管理者認証のコードを追加してください
-      const isAdmin = true; // 仮のデータ
-
-      dispatch(setAdminStatus(isAdmin));
-    } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      }
+/**
+ * ユーザー情報取得処理
+ */
+export function fetchUser(student_id: string) {
+  return async (dispatch: Dispatch<any>) => {
+    const response = await fetch(`/api/users/${student_id}`);
+    const data = await response.json();
+    if (response.ok) {
+      dispatch(signInAction(data));
+    } else {
+      console.error("Fetch user failed");
     }
   };
-};
+}
 
-// 残高の更新
-export const updateBalance = (newBalance: number) => {
-  return async (dispatch: Dispatch<Action>) => {
-    dispatch(updateUserBalance(newBalance));
-  };
-};
-
-// ユーザー情報の更新
-export const updateUser = (
-  student_id: number,
-  balance: number,
-  is_admin: boolean,
-  items: Item[] | null
-) => {
-  return async (dispatch: Dispatch<Action>) => {
-    try {
-      const userData: User = { student_id, balance, is_admin, items };
-      // ユーザー情報をデータベースに更新するコードを追加してください
-      dispatch(setUser(userData));
-    } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      }
+/**
+ * ユーザー情報更新処理
+ */
+export function updateUser(student_id: string, user: User) {
+  return async (dispatch: Dispatch<any>) => {
+    const response = await fetch(`/api/users/${student_id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    });
+    if (response.ok) {
+      dispatch(signInAction(user));
+    } else {
+      console.error("Update user failed");
     }
   };
-};
+}
 
-// ユーザーアイテムの更新
-export const updateItems = (items: Item[]) => {
-  return async (dispatch: Dispatch<Action>) => {
-    dispatch(updateUserItems(items));
+/**
+ * アイテム追加処理
+ */
+export function addItem(item: Item) {
+  return (dispatch: Dispatch<any>) => {
+    dispatch(addItemAction(item));
   };
-};
+}
+
+/**
+ * バランス更新処理
+ */
+export function updateBalance(balance: number) {
+  return (dispatch: Dispatch<any>) => {
+    dispatch(updateBalanceAction(balance));
+  };
+}
