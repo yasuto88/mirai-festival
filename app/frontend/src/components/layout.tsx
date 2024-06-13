@@ -16,22 +16,19 @@ export default function RootLayout({
   const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const userData = localStorage.getItem("user");
-    if (userData) {
-      dispatch(
-        setUser({
-          student_id: Number(userData),
-          balance: 0,
-          is_admin: false,
-          items: [
-            { item_id: 1, name: "勇者の剣", quantity: 1 },
-          { item_id: 2, name: "魔法の杖", quantity: 2 }
-          ],
-        })
-      );
-    }
-  }, [dispatch]);
+  // useEffect(() => {
+  //   const userData = localStorage.getItem("user");
+  //   if (userData) {
+  //     dispatch(
+  //       setUser({
+  //         student_id: Number(userData),
+  //         balance: 0,
+  //         is_admin: false,
+  //         items: [],
+  //       })
+  //     );
+  //   }
+  // }, [dispatch]);
 
   useEffect(() => {
     if (currentUser === null) {
