@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../../reducks/store";
-import { signIn } from "../../../reducks/user/operations";
+import { signIn } from "../../../reducks/user";
 
 export const useLogin = () => {
   const [studentNumber, setStudentNumber] = useState("");
@@ -29,7 +29,7 @@ export const useLogin = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    dispatch(signIn(Number(studentNumber), isPersistent));
+    dispatch(signIn(Number(studentNumber)));
   };
 
   return {

@@ -1,16 +1,15 @@
 import React from "react";
 import { Box, Sheet } from "@mui/joy";
-import { UserProfile } from "../../uniqueParts/UserProfile";
-import { QRCodeScanner } from "../../uniqueParts/QRCodeScanner";
-import { ItemTable } from "../../uniqueParts/ItemTable";
 import { User } from "../../../reducks/user";
+import { ItemTable } from "../../uniqueParts/ItemTable";
+import { QRCodeScanner } from "../../uniqueParts/QRCodeScanner";
+import { UserProfile } from "../../uniqueParts/UserProfile";
 
 type Props = User;
 
 const UserPagePresenter: React.FC<Props> = (props) => (
   <Sheet
     sx={{
-      maxWidth: 300,
       margin: "0 auto",
       padding: 2,
       display: "flex",
@@ -18,12 +17,14 @@ const UserPagePresenter: React.FC<Props> = (props) => (
       gap: 2,
       justifyContent: "center",
       alignItems: "center",
+      height: "100dvh",
+      maxWidth: "400px",
     }}
-    variant="outlined"
+    // variant="soft"
   >
-    {/* <UserProfile {...props} />
-    <ItemTable {...props} />
-    <QRCodeScanner {...props} /> */}
+    <UserProfile />
+    <ItemTable />
+    <QRCodeScanner />
   </Sheet>
 );
 

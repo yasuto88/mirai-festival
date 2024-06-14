@@ -44,6 +44,7 @@ const LoginPresenter: React.FC<Props> = ({
           minHeight: "100dvh",
           width: "100%",
           px: 2,
+          maxWidth: "400px",
         }}
       >
         <Box

@@ -10,29 +10,48 @@ const userSlice = createSlice({
   initialState: initialUserState,
   reducers: {
     signInAction: (state: User, action: PayloadAction<User>) => {
-      const updatedData = { ...state, ...action.payload };
-      return updatedData;
+      return { ...state, ...action.payload };
     },
-    addItemAction: (state: User, action: PayloadAction<Item>) => {
-      const item = action.payload;
-      const existingItem = state.possession_list.find(
-        (i) => i.product_id === item.product_id
-      );
-      if (existingItem) {
-        existingItem.quantity += item.quantity;
-      } else {
-        state.possession_list.push(item);
-      }
+    addItemAction: (state: User, action: PayloadAction<User>) => {
+      return { ...state, ...action.payload };
     },
     updateBalanceAction: (state: User, action: PayloadAction<number>) => {
       state.balance = action.payload;
+    },
+    fetchUserAction: (state: User, action: PayloadAction<User>) => {
+      return { ...state, ...action.payload };
+    },
+    setErrorAction: (state: User, action: PayloadAction<string>) => {
+      return { ...state, error: action.payload };
+    },
+  },
+});
+
+const productSlice = createSlice({
+  name: "product",
+  initialState: null as Item | null,
+  reducers: {
+    fetchProductAction: (state, action: PayloadAction<Item>) => {
+      return action.payload;
     },
   },
 });
 
 // actionをエクスポート
-export const { signInAction, addItemAction, updateBalanceAction } =
-  userSlice.actions;
+export const {
+  signInAction,
+  addItemAction,
+  updateBalanceAction,
+  fetchUserAction,
+  setErrorAction,
+} = userSlice.actions;
+
+export const { fetchProductAction } = productSlice.actions;
 
 // reducerをエクスポート
-export default userSlice.reducer;
+// export default { user: userSlice.reducer, product: productSlice.reducer };
+const userReducer = {
+  user: userSlice.reducer,
+  product: productSlice.reducer,
+};
+export default userReducer;

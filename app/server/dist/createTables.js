@@ -9,7 +9,7 @@ db.exec(`DROP TABLE IF EXISTS admin_passwords`);
 // テーブル作成
 db.exec(`
 CREATE TABLE IF NOT EXISTS users (
-    student_id TEXT PRIMARY KEY,
+    student_id INTEGER PRIMARY KEY,
     balance INTEGER NOT NULL,
     possession_list TEXT NOT NULL,
     isAdmin INTEGER NOT NULL DEFAULT 0
@@ -28,12 +28,19 @@ CREATE TABLE IF NOT EXISTS admin_passwords (
     password TEXT NOT NULL
 );
 `);
+// 初期アイテムの定義
+const initialItem = {
+    product_id: 1,
+    product_name: "Sample Product",
+    quantity: 10,
+};
 // サンプルデータ挿入
 const insertUser = db.prepare(`
 INSERT INTO users (student_id, balance, possession_list, isAdmin) VALUES (?, ?, ?, ?)
 `);
-insertUser.run("12345678", 1000, "[]", 0);
-insertUser.run("87654321", 500, "[]", 0);
+// 学籍番号12345678のユーザーに初期アイテムを設定
+insertUser.run(12345678, 1000, JSON.stringify([initialItem]), 0);
+insertUser.run(87654321, 500, JSON.stringify([]), 0);
 const insertProduct = db.prepare(`
 INSERT INTO products (product_id, product_name, price) VALUES (?, ?, ?)
 `);

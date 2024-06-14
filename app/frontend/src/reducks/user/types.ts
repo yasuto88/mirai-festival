@@ -1,6 +1,6 @@
 /** reduxで扱うユーザー情報の型 */
 export type User = {
-  student_id: string;
+  student_id: number;
   balance: number;
   possession_list: Item[];
   isAdmin: boolean;

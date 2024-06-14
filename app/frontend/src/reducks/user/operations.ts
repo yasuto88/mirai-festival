@@ -1,22 +1,48 @@
 import { Dispatch } from "react";
-import { signInAction, addItemAction, updateBalanceAction } from "./slices";
+import {
+  signInAction,
+  addItemAction,
+  updateBalanceAction,
+  fetchUserAction,
+  fetchProductAction,
+  setErrorAction,
+} from "./slices";
 import type { User, Item } from "./types";
+import { AppDispatch } from "../store";
 
 /**
  * サインイン処理
  */
-export function signIn(student_id: string) {
-  return async (dispatch: Dispatch<any>) => {
-    const response = await fetch(`/api/users/login`, {
+export function signIn(student_id: number) {
+  return async (dispatch: AppDispatch) => {
+    const response = await fetch(`http://localhost:3000/api/users/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ student_id }),
     });
-    const data = await response.json();
+    const data: User = await response.json();
     if (response.ok) {
+      localStorage.setItem("student_id", student_id.toString()); // ローカルストレージに学籍番号を保存
       dispatch(signInAction(data));
     } else {
-      console.error("User login failed");
+      dispatch(setErrorAction("User login failed"));
+    }
+  };
+}
+
+/**
+ * ユーザー情報取得処理
+ */
+export function fetchUser(student_id: number) {
+  return async (dispatch: AppDispatch) => {
+    const response = await fetch(
+      `http://localhost:3000/api/users/${student_id}`
+    );
+    const data: User = await response.json();
+    if (response.ok) {
+      dispatch(fetchUserAction(data));
+    } else {
+      dispatch(setErrorAction("Fetch user failed"));
     }
   };
 }
@@ -25,32 +51,18 @@ export function signIn(student_id: string) {
  * 管理者ログイン処理
  */
 export function loginAdmin(admin_id: string, password: string) {
-  return async (dispatch: Dispatch<any>) => {
-    const response = await fetch(`/api/admins/login`, {
+  return async (dispatch: AppDispatch) => {
+    const response = await fetch(`http://localhost:3000/api/admins/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ admin_id, password }),
     });
-    const data = await response.json();
+    const data: User = await response.json();
     if (response.ok) {
+      localStorage.setItem("student_id", admin_id); // ローカルストレージに学籍番号を保存
       dispatch(signInAction(data));
     } else {
-      console.error("Admin login failed");
-    }
-  };
-}
-
-/**
- * ユーザー情報取得処理
- */
-export function fetchUser(student_id: string) {
-  return async (dispatch: Dispatch<any>) => {
-    const response = await fetch(`/api/users/${student_id}`);
-    const data = await response.json();
-    if (response.ok) {
-      dispatch(signInAction(data));
-    } else {
-      console.error("Fetch user failed");
+      dispatch(setErrorAction("Admin login failed"));
     }
   };
 }
@@ -59,16 +71,19 @@ export function fetchUser(student_id: string) {
  * ユーザー情報更新処理
  */
 export function updateUser(student_id: string, user: User) {
-  return async (dispatch: Dispatch<any>) => {
-    const response = await fetch(`/api/users/${student_id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(user),
-    });
+  return async (dispatch: AppDispatch) => {
+    const response = await fetch(
+      `http://localhost:3000/api/users/${student_id}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user),
+      }
+    );
     if (response.ok) {
       dispatch(signInAction(user));
     } else {
-      console.error("Update user failed");
+      dispatch(setErrorAction("Update user failed"));
     }
   };
 }
@@ -76,17 +91,41 @@ export function updateUser(student_id: string, user: User) {
 /**
  * アイテム追加処理
  */
-export function addItem(item: Item) {
-  return (dispatch: Dispatch<any>) => {
-    dispatch(addItemAction(item));
+export function addItem(
+  student_id: number,
+  product_id: number,
+  quantity: number
+) {
+  return async (dispatch: AppDispatch) => {
+    const response = await fetch(`http://localhost:3000/api/add-product`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ student_id, product_id, quantity }),
+    });
+    const data: User = await response.json();
+    if (response.ok) {
+      dispatch(addItemAction(data));
+    } else {
+      const errorData = await response.json();
+      dispatch(setErrorAction(errorData.error || "Add item failed"));
+    }
   };
 }
 
 /**
- * バランス更新処理
+ * プロダクト情報取得処理
  */
-export function updateBalance(balance: number) {
-  return (dispatch: Dispatch<any>) => {
-    dispatch(updateBalanceAction(balance));
+export function fetchProduct(product_id: number) {
+  return async (dispatch: AppDispatch) => {
+    const response = await fetch(
+      `http://localhost:3000/api/products/${product_id}`
+    );
+    const data: Item = await response.json();
+    if (response.ok) {
+      dispatch(fetchProductAction(data)); // 商品情報を設定するアクションをディスパッチ
+      return data; // 商品情報を返す
+    } else {
+      dispatch(setErrorAction("Fetch product failed"));
+    }
   };
 }
