@@ -186,6 +186,7 @@ app.post("/api/add-product", (req, res) => {
             product_id,
             product_name: product.product_name,
             quantity: quantity,
+            price: product.price,
         });
     }
     const newBalance = user.balance - product.price * quantity;
@@ -198,8 +199,26 @@ app.post("/api/add-product", (req, res) => {
     const updatedUser = db
         .prepare("SELECT * FROM users WHERE student_id = ?")
         .get(Number(student_id));
+    updatedUser.possession_list = JSON.parse(updatedUser.possession_list);
     console.log("User updated via QR code:", updatedUser);
     res.json(updatedUser);
+});
+// すべてのユーザー情報取得
+app.get("/api/users", (req, res) => {
+    console.log("Fetching all users");
+    const users = db.prepare("SELECT * FROM users").all();
+    users.forEach((user) => {
+        user.possession_list = JSON.parse(user.possession_list);
+    });
+    console.log("Users:", users);
+    res.json(users);
+});
+// すべてのアイテム情報取得
+app.get("/api/items", (req, res) => {
+    console.log("Fetching all items");
+    const items = db.prepare("SELECT * FROM products").all();
+    console.log("Items:", items);
+    res.json(items);
 });
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

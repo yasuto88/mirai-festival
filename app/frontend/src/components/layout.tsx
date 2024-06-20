@@ -19,6 +19,7 @@ export default function RootLayout({
     if (typeof window !== "undefined") {
       const storedStudentId = localStorage.getItem("student_id");
       if (storedStudentId) {
+        console.log("storedStudentId", storedStudentId);
         dispatch(fetchUser(parseInt(storedStudentId, 10))).finally(() => {
           setIsHydrated(true); // Hydrationが完了したことを示す
         });
@@ -56,10 +57,11 @@ export default function RootLayout({
   return (
     <Sheet
       sx={{
-        height: "100vh",
+        height: "100dvh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        overflowY: "auto",
       }}
     >
       <Box>{children}</Box>

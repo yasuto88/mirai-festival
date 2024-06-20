@@ -20,7 +20,6 @@ const UserPagePresenter: React.FC<Props> = (props) => (
       height: "100dvh",
       maxWidth: "400px",
     }}
-    // variant="soft"
   >
     <UserProfile />
     <ItemTable />

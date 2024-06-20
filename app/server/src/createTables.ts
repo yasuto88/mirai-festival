@@ -61,6 +61,7 @@ const insertAdminPassword = db.prepare(`
 INSERT INTO admin_passwords (password) VALUES (?)
 `);
 
-insertAdminPassword.run("admin_password");
+// 管理者パスワードを "Iput-admin1234" に設定
+insertAdminPassword.run("Iput-admin1234");
 
 console.log("Tables created and sample data inserted successfully.");

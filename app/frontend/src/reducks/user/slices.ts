@@ -9,30 +9,39 @@ const userSlice = createSlice({
   name: "user",
   initialState: initialUserState,
   reducers: {
-    signInAction: (state: User, action: PayloadAction<User>) => {
+    signInAction: (state, action: PayloadAction<User>) => {
       return { ...state, ...action.payload };
     },
-    addItemAction: (state: User, action: PayloadAction<User>) => {
+    addItemAction: (state, action: PayloadAction<User>) => {
       return { ...state, ...action.payload };
     },
-    updateBalanceAction: (state: User, action: PayloadAction<number>) => {
+    updateBalanceAction: (state, action: PayloadAction<number>) => {
       state.balance = action.payload;
     },
-    fetchUserAction: (state: User, action: PayloadAction<User>) => {
+    fetchUserAction: (state, action: PayloadAction<User>) => {
       return { ...state, ...action.payload };
     },
-    setErrorAction: (state: User, action: PayloadAction<string>) => {
-      return { ...state, error: action.payload };
+    fetchAllUsersAction: (state, action: PayloadAction<User[]>) => {
+      return { ...state, allUsers: action.payload };
+    },
+    setErrorAction: (state, action: PayloadAction<string>) => {
+      state.error = action.payload;
     },
   },
 });
 
 const productSlice = createSlice({
   name: "product",
-  initialState: null as Item | null,
+  initialState: {
+    currentProduct: null as Item | null,
+    allItems: [] as Item[],
+  },
   reducers: {
     fetchProductAction: (state, action: PayloadAction<Item>) => {
-      return action.payload;
+      state.currentProduct = action.payload;
+    },
+    fetchAllItemsAction: (state, action: PayloadAction<Item[]>) => {
+      state.allItems = action.payload;
     },
   },
 });
@@ -43,15 +52,15 @@ export const {
   addItemAction,
   updateBalanceAction,
   fetchUserAction,
+  fetchAllUsersAction,
   setErrorAction,
 } = userSlice.actions;
 
-export const { fetchProductAction } = productSlice.actions;
+export const { fetchProductAction, fetchAllItemsAction } = productSlice.actions;
 
 // reducerをエクスポート
-// export default { user: userSlice.reducer, product: productSlice.reducer };
-const userReducer = {
+const rootReducer = {
   user: userSlice.reducer,
   product: productSlice.reducer,
 };
-export default userReducer;
+export default rootReducer;

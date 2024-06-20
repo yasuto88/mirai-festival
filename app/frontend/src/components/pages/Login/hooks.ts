@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
+import { signIn, loginAdmin } from "../../../reducks/user/operations";
 import { AppDispatch } from "../../../reducks/store";
-import { signIn } from "../../../reducks/user";
 
 export const useLogin = () => {
+  const dispatch: AppDispatch = useDispatch();
+  const router = useRouter();
   const [studentNumber, setStudentNumber] = useState("");
   const [adminPassword, setAdminPassword] = useState("");
   const [isPersistent, setIsPersistent] = useState(false);
-  const dispatch: AppDispatch = useDispatch();
 
   const handleChangeStudentNumber = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -27,9 +29,15 @@ export const useLogin = () => {
     setIsPersistent(event.target.checked);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    dispatch(signIn(Number(studentNumber)));
+    if (isPersistent) {
+      await dispatch(loginAdmin(studentNumber, adminPassword));
+      router.push("/admin");
+    } else {
+      await dispatch(signIn(Number(studentNumber)));
+      router.push("/");
+    }
   };
 
   return {

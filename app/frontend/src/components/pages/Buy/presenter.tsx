@@ -29,6 +29,7 @@ const BuyPagePresenter: React.FC<Props> = ({
     {product ? (
       <>
         <Typography level="h4">{product.product_name}</Typography>
+        <Typography level="h4">価格:{product.price}</Typography>
         <Input
           type="number"
           value={quantity}
@@ -58,18 +59,17 @@ const BuyPagePresenter: React.FC<Props> = ({
           {snackbarColor === "success" ? "Success" : "Error"}
         </Typography>
         <Typography sx={{ mt: 1, mb: 2 }}>{snackbarMessage}</Typography>
-        {snackbarColor === "success" ?? (
-          <Button
-            variant="soft"
-            color="success"
-            onClick={() => {
-              // ホームにリダイレクト
-              router.push("/");
-            }}
-          >
-            ホームにリダイレクト
-          </Button>
-        )}
+        <Button
+          variant="soft"
+          // color="success"
+          color={snackbarColor === "success" ? "success" : "danger"}
+          onClick={() => {
+            // ホームにリダイレクト
+            router.push("/");
+          }}
+        >
+          ホームにリダイレクト
+        </Button>
       </div>
     </Snackbar>
   </Box>
