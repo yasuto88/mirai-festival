@@ -15,11 +15,14 @@ import { AppDispatch } from "../store";
  */
 export function signIn(student_id: number) {
   return async (dispatch: AppDispatch) => {
-    const response = await fetch(`http://localhost:3000/api/users/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ student_id }),
-    });
+    const response = await fetch(
+      `https://${process.env.API_URL}/api/users/login`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ student_id }),
+      }
+    );
     const data: User = await response.json();
     if (response.ok) {
       localStorage.setItem("student_id", student_id.toString()); // ローカルストレージに学籍番号を保存
@@ -36,7 +39,7 @@ export function signIn(student_id: number) {
 export function fetchUser(student_id: number) {
   return async (dispatch: AppDispatch) => {
     const response = await fetch(
-      `http://localhost:3000/api/users/${student_id}`
+      `https://${process.env.API_URL}/api/users/${student_id}`
     );
     const data: User = await response.json();
     if (response.ok) {
@@ -52,11 +55,14 @@ export function fetchUser(student_id: number) {
  */
 export function loginAdmin(admin_id: string, password: string) {
   return async (dispatch: AppDispatch) => {
-    const response = await fetch(`http://localhost:3000/api/admins/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ admin_id, password }),
-    });
+    const response = await fetch(
+      `https://${process.env.API_URL}/api/admins/login`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ admin_id, password }),
+      }
+    );
     const data: User = await response.json();
     if (response.ok) {
       localStorage.setItem("student_id", admin_id); // ローカルストレージに学籍番号を保存
@@ -73,7 +79,7 @@ export function loginAdmin(admin_id: string, password: string) {
 export function updateUser(student_id: number, user: User) {
   return async (dispatch: AppDispatch) => {
     const response = await fetch(
-      `http://localhost:3000/api/users/${student_id}`,
+      `https://${process.env.API_URL}/api/users/${student_id}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -97,11 +103,14 @@ export function addItem(
   quantity: number
 ) {
   return async (dispatch: AppDispatch) => {
-    const response = await fetch(`http://localhost:3000/api/add-product`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ student_id, product_id, quantity }),
-    });
+    const response = await fetch(
+      `https://${process.env.API_URL}/api/add-product`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ student_id, product_id, quantity }),
+      }
+    );
     const data: User = await response.json();
     if (response.ok) {
       dispatch(addItemAction(data));
@@ -118,7 +127,7 @@ export function addItem(
 export function updateItem(product_id: number, item: Item) {
   return async (dispatch: AppDispatch) => {
     const response = await fetch(
-      `http://localhost:3000/api/products/${product_id}`,
+      `https://${process.env.API_URL}/api/products/${product_id}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -139,7 +148,7 @@ export function updateItem(product_id: number, item: Item) {
 export function deleteItem(product_id: number) {
   return async (dispatch: AppDispatch) => {
     const response = await fetch(
-      `http://localhost:3000/api/products/${product_id}`,
+      `https://${process.env.API_URL}/api/products/${product_id}`,
       {
         method: "DELETE",
       }
@@ -158,7 +167,7 @@ export function deleteItem(product_id: number) {
 export function fetchProduct(product_id: number) {
   return async (dispatch: AppDispatch) => {
     const response = await fetch(
-      `http://localhost:3000/api/products/${product_id}`
+      `https://${process.env.API_URL}/api/products/${product_id}`
     );
     const data: Item = await response.json();
     if (response.ok) {
@@ -175,7 +184,7 @@ export function fetchProduct(product_id: number) {
  */
 export function fetchAllUsers() {
   return async (dispatch: AppDispatch) => {
-    const response = await fetch(`http://localhost:3000/api/users`);
+    const response = await fetch(`https://${process.env.API_URL}/api/users`);
     const data: User[] = await response.json();
     if (response.ok) {
       dispatch(fetchAllUsersAction(data));
@@ -190,7 +199,7 @@ export function fetchAllUsers() {
  */
 export function fetchAllItems() {
   return async (dispatch: AppDispatch) => {
-    const response = await fetch(`http://localhost:3000/api/items`);
+    const response = await fetch(`https://${process.env.API_URL}/api/items`);
     const data: Item[] = await response.json();
     if (response.ok) {
       dispatch(fetchAllItemsAction(data));
@@ -205,11 +214,14 @@ export function fetchAllItems() {
  */
 export function addNewItem(item: Item) {
   return async (dispatch: AppDispatch) => {
-    const response = await fetch(`http://localhost:3000/api/products`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(item),
-    });
+    const response = await fetch(
+      `https://${process.env.API_URL}/api/products`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(item),
+      }
+    );
     const data: Item = await response.json();
     if (response.ok) {
       dispatch(fetchAllItems());
