@@ -290,8 +290,8 @@ app.get("/api/items", (req, res) => {
 });
 
 const options = {
-  key: fs.readFileSync("certificates/localhost-key.pem"),
-  cert: fs.readFileSync("certificates/localhost.pem"),
+  key: fs.readFileSync("../certificates/rootCA-key.pem"),
+  cert: fs.readFileSync("../certificates/rootCA.pem"),
 };
 
 const PORT = parseInt(process.env.PORT || "3000", 10);
