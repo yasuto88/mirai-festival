@@ -32,7 +32,7 @@ app.post("/api/users/login", (req, res) => {
     const insertUser = db.prepare(
       "INSERT INTO users (student_id, balance, possession_list, isAdmin) VALUES (?, ?, ?, ?)"
     );
-    insertUser.run(parseInt(student_id, 10), 1000, JSON.stringify([]), 0);
+    insertUser.run(parseInt(student_id, 10), 100, JSON.stringify([]), 0);
     user = db
       .prepare("SELECT * FROM users WHERE student_id = ?")
       .get(parseInt(student_id, 10));
@@ -290,8 +290,8 @@ app.get("/api/items", (req, res) => {
 });
 
 const options = {
-  key: fs.readFileSync("../certificates/rootCA-key.pem"),
-  cert: fs.readFileSync("../certificates/rootCA.pem"),
+  key: fs.readFileSync("../certificates/localhost+2-key.pem"),
+  cert: fs.readFileSync("../certificates/localhost+2.pem"),
 };
 
 const PORT = parseInt(process.env.PORT || "3000", 10);
