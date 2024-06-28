@@ -1,15 +1,15 @@
-import express from "express";
-import next from "next";
-import https from "https";
-import fs from "fs";
+express = require("express");
+next = require("next");
+https = require("https");
+fs = require("fs");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
 const httpsOptions = {
-  key: fs.readFileSync("../certificates/rootCA-key.pem"),
-  cert: fs.readFileSync("../certificates/rootCA.pem"),
+  key: fs.readFileSync("../certificates/localhost+2-key.pem"),
+  cert: fs.readFileSync("../certificates/localhost+2.pem"),
 };
 
 app.prepare().then(() => {
