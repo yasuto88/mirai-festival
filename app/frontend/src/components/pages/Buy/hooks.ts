@@ -38,7 +38,24 @@ export const useBuy = () => {
         setSnackbarColor("success");
         setSnackbarOpen(true);
       } catch (error: any) {
-        setSnackbarMessage("購入に失敗しました。");
+        if (error instanceof Error) {
+          let message = "";
+          if (error.message === "Error: Invalid quantity") {
+            message = "数量が不正です。";
+          } else if (error.message === "Error: Product not found") {
+            message = "商品が見つかりません。";
+          } else if (error.message === "Error: User not found") {
+            message = "ユーザーが見つかりません。";
+          } else if (error.message === "Insufficient balance") {
+            message = "残高が不足しています。";
+          } else {
+            message = "不明なエラーが発生しました。";
+          }
+          setSnackbarMessage(`購入に失敗しました : ${message}`);
+        } else {
+          console.log("error", error);
+          setSnackbarMessage("購入に失敗しました。");
+        }
         setSnackbarColor("error");
         setSnackbarOpen(true);
       }

@@ -111,12 +111,12 @@ export function addItem(
         body: JSON.stringify({ student_id, product_id, quantity }),
       }
     );
-    const data: User = await response.json();
     if (response.ok) {
+      const data: User = await response.json();
       dispatch(addItemAction(data));
     } else {
       const errorData = await response.json();
-      dispatch(setErrorAction(errorData.error || "Add item failed"));
+      throw new Error(errorData.error || "Add item failed");
     }
   };
 }
