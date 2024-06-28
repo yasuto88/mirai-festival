@@ -22,24 +22,24 @@ export const useAdmin = () => {
     dispatch(fetchAllItems());
   }, [dispatch]);
 
-  const handleUpdateUser = (student_id: number, updatedUser: User) => {
-    dispatch(updateUser(student_id, updatedUser));
+  const handleUpdateUser = async (student_id: number, updatedUser: User) => {
+    await dispatch(updateUser(student_id, updatedUser));
     // ぺージをリロードする
     router.reload();
   };
 
-  const handleUpdateItem = (product_id: number, updatedItem: Item) => {
-    dispatch(updateItem(product_id, updatedItem));
+  const handleUpdateItem = async (product_id: number, updatedItem: Item) => {
+    await dispatch(updateItem(product_id, updatedItem));
     router.reload();
   };
 
-  const handleDeleteItem = (product_id: number) => {
-    dispatch(deleteItem(product_id));
+  const handleDeleteItem = async (product_id: number) => {
+    await dispatch(deleteItem(product_id));
     router.reload();
   };
 
-  const handleAddNewItem = (newItem: Item) => {
-    dispatch(addNewItem(newItem));
+  const handleAddNewItem = async (newItem: Item) => {
+    await dispatch(addNewItem(newItem));
     router.reload();
   };
 
