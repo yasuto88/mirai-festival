@@ -3,6 +3,9 @@ import bodyParser from "body-parser";
 import Database from "better-sqlite3";
 import cors from "cors";
 
+import https from "https";
+import fs from "fs";
+
 const app = express();
 const db = new Database("example.db");
 
@@ -29,7 +32,7 @@ app.post("/api/users/login", (req, res) => {
     const insertUser = db.prepare(
       "INSERT INTO users (student_id, balance, possession_list, isAdmin) VALUES (?, ?, ?, ?)"
     );
-    insertUser.run(parseInt(student_id, 10), 1000, JSON.stringify([]), 0);
+    insertUser.run(parseInt(student_id, 10), 100, JSON.stringify([]), 0);
     user = db
       .prepare("SELECT * FROM users WHERE student_id = ?")
       .get(parseInt(student_id, 10));
@@ -286,7 +289,12 @@ app.get("/api/items", (req, res) => {
   res.json(items);
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+const options = {
+  key: fs.readFileSync("../certificates/localhost+2-key.pem"),
+  cert: fs.readFileSync("../certificates/localhost+2.pem"),
+};
+
+const PORT = parseInt(process.env.PORT || "3000", 10);
+https.createServer(options, app).listen(PORT, "0.0.0.0", () => {
   console.log(`Server is running on port ${PORT}`);
 });
