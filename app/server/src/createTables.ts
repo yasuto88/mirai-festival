@@ -62,6 +62,12 @@ insertProduct.run(3, "月光魔法の書", 100);
 insertProduct.run(4, "魅儡石", 0);
 insertProduct.run(5, "アイプタイト", 0);
 insertProduct.run(6, "OKStone", 0);
+insertProduct.run(7, "精霊石", 0);
+insertProduct.run(8, "ダイアモンド", 0);
+insertProduct.run(9, "強そうな剣", 0);
+insertProduct.run(10, "強そうな盾", 0);
+insertProduct.run(11, "きれいな水", 0);
+insertProduct.run(12, "木の枝", 0);
 
 // 管理者パスワードのサンプルデータ挿入
 const insertAdminPassword = db.prepare(`

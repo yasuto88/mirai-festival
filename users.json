@@ -1,0 +1,1303 @@
+[
+  {
+    "student_id": 123,
+    "balance": 25,
+    "possession_list": [
+      {
+        "product_id": 1,
+        "product_name": "吸魂魔法の書",
+        "quantity": 1,
+        "price": 50
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 210059,
+    "balance": 100,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 210117,
+    "balance": 100,
+    "possession_list": [
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 1,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 220068,
+    "balance": 100,
+    "possession_list": [],
+    "isAdmin": 1
+  },
+  {
+    "student_id": 220134,
+    "balance": 700,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 220185,
+    "balance": 33,
+    "possession_list": [
+      {
+        "product_id": 3,
+        "product_name": "月光魔法の書",
+        "quantity": 1,
+        "price": 50
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 220188,
+    "balance": 85,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230013,
+    "balance": 1560,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230016,
+    "balance": 165,
+    "possession_list": [
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 6,
+        "product_name": "OKStone",
+        "quantity": 1,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230017,
+    "balance": 1355,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230020,
+    "balance": 255,
+    "possession_list": [
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 102,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230022,
+    "balance": 100,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230024,
+    "balance": 275,
+    "possession_list": [
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 5,
+        "product_name": "アイプタイト",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 3,
+        "product_name": "月光魔法の書",
+        "quantity": 1,
+        "price": 100
+      },
+      {
+        "product_id": 2,
+        "product_name": "復活魔法の書",
+        "quantity": 1,
+        "price": 200
+      },
+      {
+        "product_id": 1,
+        "product_name": "吸魂魔法の書",
+        "quantity": 2,
+        "price": 50
+      },
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 6,
+        "product_name": "OKStone",
+        "quantity": 2,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230043,
+    "balance": 90,
+    "possession_list": [
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 1000,
+        "price": 0
+      },
+      {
+        "product_id": 2,
+        "product_name": "復活魔法の書",
+        "quantity": 1,
+        "price": 200
+      },
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 15629,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230045,
+    "balance": 88,
+    "possession_list": [
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 5,
+        "product_name": "アイプタイト",
+        "quantity": 25,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230062,
+    "balance": 40,
+    "possession_list": [
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 3,
+        "price": 0
+      },
+      {
+        "product_id": 5,
+        "product_name": "アイプタイト",
+        "quantity": 4,
+        "price": 0
+      },
+      {
+        "product_id": 12,
+        "product_name": "木の枝",
+        "quantity": 18,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230066,
+    "balance": 54,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230084,
+    "balance": 1305,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230085,
+    "balance": 110,
+    "possession_list": [
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 1001,
+        "price": 0
+      },
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 1100,
+        "price": 0
+      },
+      {
+        "product_id": 5,
+        "product_name": "アイプタイト",
+        "quantity": 2000,
+        "price": 0
+      },
+      {
+        "product_id": 12,
+        "product_name": "木の枝",
+        "quantity": 1000,
+        "price": 0
+      },
+      {
+        "product_id": 6,
+        "product_name": "OKStone",
+        "quantity": 1000,
+        "price": 0
+      },
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 2000,
+        "price": 0
+      },
+      {
+        "product_id": 8,
+        "product_name": "ダイアモンド",
+        "quantity": 10000,
+        "price": 0
+      },
+      {
+        "product_id": 1,
+        "product_name": "吸魂魔法の書",
+        "quantity": 1,
+        "price": 50
+      },
+      {
+        "product_id": 3,
+        "product_name": "月光魔法の書",
+        "quantity": 1,
+        "price": 50
+      },
+      {
+        "product_id": 2,
+        "product_name": "復活魔法の書",
+        "quantity": 1,
+        "price": 50
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230086,
+    "balance": 115,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230105,
+    "balance": 280,
+    "possession_list": [
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 1,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230113,
+    "balance": 0,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230117,
+    "balance": 975,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230119,
+    "balance": 120,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230181,
+    "balance": 80,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230200,
+    "balance": 100,
+    "possession_list": [],
+    "isAdmin": 1
+  },
+  {
+    "student_id": 230207,
+    "balance": 125,
+    "possession_list": [
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 31,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230218,
+    "balance": 87,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 230221,
+    "balance": 99,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240005,
+    "balance": 85,
+    "possession_list": [
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 65535,
+        "price": 0
+      },
+      {
+        "product_id": 12,
+        "product_name": "木の枝",
+        "quantity": 255,
+        "price": 0
+      },
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 2147483647,
+        "price": 0
+      },
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 31,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240008,
+    "balance": 500,
+    "possession_list": [
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 16,
+        "price": 0
+      },
+      {
+        "product_id": 6,
+        "product_name": "OKStone",
+        "quantity": 198,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240009,
+    "balance": 45,
+    "possession_list": [
+      {
+        "product_id": 12,
+        "product_name": "木の枝",
+        "quantity": 101,
+        "price": 0
+      },
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 100,
+        "price": 0
+      },
+      {
+        "product_id": 5,
+        "product_name": "アイプタイト",
+        "quantity": 100,
+        "price": 0
+      },
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 100,
+        "price": 0
+      },
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 100,
+        "price": 0
+      },
+      {
+        "product_id": 1,
+        "product_name": "吸魂魔法の書",
+        "quantity": 1,
+        "price": 50
+      },
+      {
+        "product_id": 8,
+        "product_name": "ダイアモンド",
+        "quantity": 101,
+        "price": 0
+      },
+      {
+        "product_id": 9,
+        "product_name": "強そうな剣",
+        "quantity": 100,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240012,
+    "balance": 249,
+    "possession_list": [
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 3,
+        "product_name": "月光魔法の書",
+        "quantity": 1,
+        "price": 50
+      },
+      {
+        "product_id": 2,
+        "product_name": "復活魔法の書",
+        "quantity": 1,
+        "price": 50
+      },
+      {
+        "product_id": 1,
+        "product_name": "吸魂魔法の書",
+        "quantity": 1,
+        "price": 50
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240014,
+    "balance": 175,
+    "possession_list": [
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 16816,
+        "price": 0
+      },
+      {
+        "product_id": 12,
+        "product_name": "木の枝",
+        "quantity": 310,
+        "price": 0
+      },
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 8.6e28,
+        "price": 0
+      },
+      {
+        "product_id": 5,
+        "product_name": "アイプタイト",
+        "quantity": 9.400000000000022e30,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240016,
+    "balance": 73,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240017,
+    "balance": 495,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240023,
+    "balance": 100,
+    "possession_list": [],
+    "isAdmin": 1
+  },
+  {
+    "student_id": 240026,
+    "balance": 0,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240029,
+    "balance": 0,
+    "possession_list": [
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 2,
+        "product_name": "復活魔法の書",
+        "quantity": 1,
+        "price": 50
+      },
+      {
+        "product_id": 1,
+        "product_name": "吸魂魔法の書",
+        "quantity": 1,
+        "price": 50
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240034,
+    "balance": 85,
+    "possession_list": [
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 3.4999999999999996e30,
+        "price": 0
+      },
+      {
+        "product_id": 5,
+        "product_name": "アイプタイト",
+        "quantity": 11000,
+        "price": 0
+      },
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 120000,
+        "price": 0
+      },
+      {
+        "product_id": 12,
+        "product_name": "木の枝",
+        "quantity": 60000,
+        "price": 0
+      },
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 6.200000000000007e23,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240046,
+    "balance": 85,
+    "possession_list": [
+      {
+        "product_id": 12,
+        "product_name": "木の枝",
+        "quantity": 4.800000000000003e25,
+        "price": 0
+      },
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 1e308,
+        "price": 0
+      },
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 6.400000000000005e60,
+        "price": 0
+      },
+      {
+        "product_id": 5,
+        "product_name": "アイプタイト",
+        "quantity": 2.0599999999999953e94,
+        "price": 0
+      },
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 5.9000000000000064e141,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240054,
+    "balance": 495,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240059,
+    "balance": 56,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240061,
+    "balance": 461,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240067,
+    "balance": 100,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240068,
+    "balance": 10,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240078,
+    "balance": 85,
+    "possession_list": [
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 9,
+        "product_name": "強そうな剣",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 12,
+        "product_name": "木の枝",
+        "quantity": 2,
+        "price": 0
+      },
+      {
+        "product_id": 5,
+        "product_name": "アイプタイト",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 1,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240083,
+    "balance": 100,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240096,
+    "balance": 100,
+    "possession_list": [
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 100,
+        "price": 0
+      },
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 100,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240097,
+    "balance": 100,
+    "possession_list": [],
+    "isAdmin": 1
+  },
+  {
+    "student_id": 240100,
+    "balance": 100,
+    "possession_list": [],
+    "isAdmin": 1
+  },
+  {
+    "student_id": 240109,
+    "balance": 1,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240113,
+    "balance": 0,
+    "possession_list": [
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 2,
+        "price": 0
+      },
+      {
+        "product_id": 5,
+        "product_name": "アイプタイト",
+        "quantity": 4,
+        "price": 0
+      },
+      {
+        "product_id": 12,
+        "product_name": "木の枝",
+        "quantity": 5,
+        "price": 0
+      },
+      {
+        "product_id": 9,
+        "product_name": "強そうな剣",
+        "quantity": 3,
+        "price": 0
+      },
+      {
+        "product_id": 8,
+        "product_name": "ダイアモンド",
+        "quantity": 4,
+        "price": 0
+      },
+      {
+        "product_id": 3,
+        "product_name": "月光魔法の書",
+        "quantity": 1,
+        "price": 100
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240114,
+    "balance": 0,
+    "possession_list": [
+      {
+        "product_id": 12,
+        "product_name": "木の枝",
+        "quantity": 1,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240120,
+    "balance": 100,
+    "possession_list": [],
+    "isAdmin": 1
+  },
+  {
+    "student_id": 240121,
+    "balance": 35,
+    "possession_list": [
+      {
+        "product_id": 7,
+        "product_name": "精霊石",
+        "quantity": 1.510000000008709e23,
+        "price": 0
+      },
+      {
+        "product_id": 12,
+        "product_name": "木の枝",
+        "quantity": 6.119999999999978e34,
+        "price": 0
+      },
+      {
+        "product_id": 5,
+        "product_name": "アイプタイト",
+        "quantity": 1.1900000000000014e22,
+        "price": 0
+      },
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 7.8e29,
+        "price": 0
+      },
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 1.5799999999999997e36,
+        "price": 0
+      },
+      {
+        "product_id": 1,
+        "product_name": "吸魂魔法の書",
+        "quantity": 1,
+        "price": 50
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240131,
+    "balance": 85,
+    "possession_list": [
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 1,
+        "price": 0
+      }
+    ],
+    "isAdmin": 1
+  },
+  {
+    "student_id": 240132,
+    "balance": 45,
+    "possession_list": [
+      {
+        "product_id": 12,
+        "product_name": "木の枝",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 2,
+        "price": 0
+      },
+      {
+        "product_id": 5,
+        "product_name": "アイプタイト",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 2,
+        "price": 0
+      },
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 1,
+        "product_name": "吸魂魔法の書",
+        "quantity": 1,
+        "price": 50
+      },
+      {
+        "product_id": 8,
+        "product_name": "ダイアモンド",
+        "quantity": 2,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240135,
+    "balance": 100,
+    "possession_list": [
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 9,
+        "product_name": "強そうな剣",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 12,
+        "product_name": "木の枝",
+        "quantity": 2,
+        "price": 0
+      },
+      {
+        "product_id": 5,
+        "product_name": "アイプタイト",
+        "quantity": 2,
+        "price": 0
+      },
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 2,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240144,
+    "balance": 500,
+    "possession_list": [
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 100000000,
+        "price": 0
+      },
+      {
+        "product_id": 6,
+        "product_name": "OKStone",
+        "quantity": 100000000,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240150,
+    "balance": 137,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240151,
+    "balance": 100,
+    "possession_list": [],
+    "isAdmin": 1
+  },
+  {
+    "student_id": 240164,
+    "balance": 79,
+    "possession_list": [
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 2,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240175,
+    "balance": 95,
+    "possession_list": [
+      {
+        "product_id": 7,
+        "product_name": "精霊石",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 5,
+        "product_name": "アイプタイト",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 6,
+        "product_name": "OKStone",
+        "quantity": 2,
+        "price": 0
+      },
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 12,
+        "product_name": "木の枝",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 1,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240176,
+    "balance": 100,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240177,
+    "balance": 87,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240186,
+    "balance": 100,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 240192,
+    "balance": 100,
+    "possession_list": [],
+    "isAdmin": 1
+  },
+  {
+    "student_id": 240193,
+    "balance": 61,
+    "possession_list": [
+      {
+        "product_id": 12,
+        "product_name": "木の枝",
+        "quantity": 10,
+        "price": 0
+      },
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 30,
+        "price": 0
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 319401,
+    "balance": 150,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 320045,
+    "balance": 100,
+    "possession_list": [],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 356894,
+    "balance": 985,
+    "possession_list": [
+      {
+        "product_id": 1,
+        "product_name": "吸魂魔法の書",
+        "quantity": 1,
+        "price": 50
+      },
+      {
+        "product_id": 2,
+        "product_name": "復活魔法の書",
+        "quantity": 1,
+        "price": 50
+      },
+      {
+        "product_id": 3,
+        "product_name": "月光魔法の書",
+        "quantity": 1,
+        "price": 50
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 521501,
+    "balance": 20,
+    "possession_list": [
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 16,
+        "price": 0
+      },
+      {
+        "product_id": 7,
+        "product_name": "精霊石",
+        "quantity": 11,
+        "price": 0
+      },
+      {
+        "product_id": 12,
+        "product_name": "木の枝",
+        "quantity": 14,
+        "price": 0
+      },
+      {
+        "product_id": 6,
+        "product_name": "OKStone",
+        "quantity": 18,
+        "price": 0
+      },
+      {
+        "product_id": 11,
+        "product_name": "きれいな水",
+        "quantity": 15,
+        "price": 0
+      },
+      {
+        "product_id": 5,
+        "product_name": "アイプタイト",
+        "quantity": 38,
+        "price": 0
+      },
+      {
+        "product_id": 8,
+        "product_name": "ダイアモンド",
+        "quantity": 18,
+        "price": 0
+      },
+      {
+        "product_id": 9,
+        "product_name": "強そうな剣",
+        "quantity": 14,
+        "price": 0
+      },
+      {
+        "product_id": 10,
+        "product_name": "強そうな盾",
+        "quantity": 9,
+        "price": 0
+      },
+      {
+        "product_id": 2,
+        "product_name": "復活魔法の書",
+        "quantity": 1,
+        "price": 50
+      },
+      {
+        "product_id": 3,
+        "product_name": "月光魔法の書",
+        "quantity": 1,
+        "price": 50
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 523501,
+    "balance": 20,
+    "possession_list": [
+      {
+        "product_id": 12,
+        "product_name": "木の枝",
+        "quantity": 2,
+        "price": 0
+      },
+      {
+        "product_id": 4,
+        "product_name": "魅儡石",
+        "quantity": 1,
+        "price": 0
+      },
+      {
+        "product_id": 5,
+        "product_name": "アイプタイト",
+        "quantity": 12,
+        "price": 0
+      },
+      {
+        "product_id": 1,
+        "product_name": "吸魂魔法の書",
+        "quantity": 2,
+        "price": 50
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 12345678,
+    "balance": 1000,
+    "possession_list": [
+      {
+        "product_id": 1,
+        "product_name": "Sample Product",
+        "quantity": 10
+      }
+    ],
+    "isAdmin": 0
+  },
+  {
+    "student_id": 87654321,
+    "balance": 500,
+    "possession_list": [],
+    "isAdmin": 0
+  }
+]

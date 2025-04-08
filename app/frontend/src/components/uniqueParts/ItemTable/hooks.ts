@@ -14,7 +14,7 @@ export const useItemTable = () => {
     }
     return possessionList || [];
   });
-  console.log(items);
+  // console.log(items);
 
   return {
     items,

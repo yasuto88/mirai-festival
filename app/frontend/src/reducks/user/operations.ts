@@ -95,6 +95,25 @@ export function updateUser(student_id: number, user: User) {
 }
 
 /**
+ * ユーザー削除処理
+ */
+export function deleteUser(student_id: number) {
+  return async (dispatch: AppDispatch) => {
+    const response = await fetch(
+      `https://${process.env.API_URL}/api/users/${student_id}`,
+      {
+        method: "DELETE",
+      }
+    );
+    if (response.ok) {
+      dispatch(fetchAllUsers());
+    } else {
+      dispatch(setErrorAction("Delete user failed"));
+    }
+  };
+}
+
+/**
  * アイテム追加処理
  */
 export function addItem(
