@@ -8,15 +8,17 @@ const AdminPageContainer: React.FC = () => {
     items,
     handleUpdateUser,
     handleUpdateItem,
+    handleDeleteUser,
     handleDeleteItem,
     handleAddNewItem,
   } = useAdmin();
-  
+
   return (
     <AdminPagePresenter
       users={users}
       items={items}
       handleUpdateUser={handleUpdateUser}
+      handleDeleteUser={handleDeleteUser}
       handleUpdateItem={handleUpdateItem}
       handleDeleteItem={handleDeleteItem}
       handleAddNewItem={handleAddNewItem}

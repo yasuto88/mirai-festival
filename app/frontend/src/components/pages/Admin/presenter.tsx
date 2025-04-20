@@ -19,6 +19,7 @@ type Props = {
   users: User[];
   items: Item[];
   handleUpdateUser: (student_id: number, updatedUser: User) => void;
+  handleDeleteUser: (student_id: number) => void;
   handleUpdateItem: (product_id: number, updatedItem: Item) => void;
   handleDeleteItem: (product_id: number) => void;
   handleAddNewItem: (newItem: Item) => void;
@@ -28,6 +29,7 @@ const AdminPagePresenter: React.FC<Props> = ({
   users,
   items,
   handleUpdateUser,
+  handleDeleteUser,
   handleUpdateItem,
   handleDeleteItem,
   handleAddNewItem,
@@ -58,11 +60,17 @@ const AdminPagePresenter: React.FC<Props> = ({
   };
 
   const [isUserModalOpen, setIsUserModalOpen] = React.useState(false);
+  const [isUserDeleteModalOpen, setIsUserDeleteModalOpen] = React.useState(false);
   const [isItemModalOpen, setIsItemModalOpen] = React.useState(false);
+  const [isItemDeleteModalOpen, setIsItemDeleteModalOpen] = React.useState(false);
 
   const openUserModal = (user: User) => {
     setEditUser(user);
     setIsUserModalOpen(true);
+  };
+
+  const openUserDeleteModal = (student_id: number) => {
+    setIsUserDeleteModalOpen(true);
   };
 
   const closeUserModal = () => {
@@ -75,23 +83,41 @@ const AdminPagePresenter: React.FC<Props> = ({
     setIsItemModalOpen(true);
   };
 
+  const openItemDeleteModal = (item) => {
+    setEditItem(item);
+    setIsItemDeleteModalOpen(true);
+  }
+
   const closeItemModal = () => {
     setEditItem(null);
     setIsItemModalOpen(false);
   };
 
+  const [searchStudentId, setSearchStudentId] = React.useState("");
+
+  const filteredUsers = searchStudentId
+    ? users.filter((user) => user.student_id.toString().includes(searchStudentId))
+    : users;
+
   return (
     <Sheet
       sx={{
         maxWidth: "400px",
-        paddingTop: 16,
+        height: "100vh",
+        margin: "auto",
+        overflow: "auto",
+        padding: "4%"
       }}
     >
-      
+
         <Logout />
         <Typography level="h4" sx={{ mb: 2 }}>
           ユーザー管理
         </Typography>
+        <FormControl>
+          <FormLabel>学籍番号で絞り込む</FormLabel>
+          <Input type="text" value={searchStudentId} onChange={(e) => setSearchStudentId(e.target.value)} />
+        </FormControl>
         <Table variant="soft">
           <thead>
             <tr>
@@ -102,7 +128,7 @@ const AdminPagePresenter: React.FC<Props> = ({
             </tr>
           </thead>
           <tbody>
-            {users?.map((user) => (
+            {filteredUsers?.map((user) => (
               <tr key={user.student_id}>
                 <td>{user.student_id}</td>
                 <td>{user.balance}</td>
@@ -143,7 +169,40 @@ const AdminPagePresenter: React.FC<Props> = ({
                 }}
               >
                 保存
+            </Button>
+            <Button
+              onClick={() => {
+                openUserDeleteModal(editUser? editUser.student_id : 0);
+              }}
+            >
+              削除
+            </Button>
+            </Stack>
+          </ModalDialog>
+        </Modal>
+
+        <Modal open={isUserDeleteModalOpen} onClose={() => setIsUserDeleteModalOpen(false)}>
+          <ModalDialog>
+            <Typography level="h4">ユーザー削除</Typography>
+            <Typography>本当に削除しますか？</Typography>
+            <Stack spacing={2} sx={{ mt: 2 }}>
+              <Button
+              onClick={() => {
+                console.log(editUser);
+                if (editUser)
+                  handleDeleteUser(editUser.student_id);
+                closeUserModal();
+              }}>
+                はい
               </Button>
+            <Button
+              onClick={() => {
+                setIsUserDeleteModalOpen(false);
+                closeUserModal();
+              }}
+            >
+              いいえ
+            </Button>
             </Stack>
           </ModalDialog>
         </Modal>
@@ -168,7 +227,7 @@ const AdminPagePresenter: React.FC<Props> = ({
                 <td>{item.price}</td>
                 <td>
                   <Button onClick={() => openItemModal(item)}>編集</Button>
-                  <Button onClick={() => handleDeleteItem(item.product_id)}>
+                  <Button onClick={() => openItemDeleteModal(item)}>
                     削除
                   </Button>
                 </td>
@@ -205,6 +264,32 @@ const AdminPagePresenter: React.FC<Props> = ({
                 }}
               >
                 保存
+              </Button>
+            </Stack>
+          </ModalDialog>
+        </Modal>
+
+        <Modal open={isItemDeleteModalOpen} onClose={() => setIsItemDeleteModalOpen(false)}>
+          <ModalDialog>
+            <Typography level="h4">アイテム削除</Typography>
+            <Typography>本当に削除しますか？</Typography>
+            <Stack spacing={2} sx={{ mt: 2 }}>
+              <Button
+                onClick={() => {
+                  if (editItem)
+                    handleDeleteItem(editItem.product_id);
+                  closeItemModal();
+                }}
+              >
+                はい
+              </Button>
+              <Button
+                onClick={() => {
+                  setIsItemDeleteModalOpen(false);
+                  closeItemModal();
+                }}
+              >
+                いいえ
               </Button>
             </Stack>
           </ModalDialog>

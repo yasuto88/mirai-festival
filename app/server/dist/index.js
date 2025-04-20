@@ -7,6 +7,8 @@ const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const better_sqlite3_1 = __importDefault(require("better-sqlite3"));
 const cors_1 = __importDefault(require("cors"));
+const https_1 = __importDefault(require("https"));
+const fs_1 = __importDefault(require("fs"));
 const app = (0, express_1.default)();
 const db = new better_sqlite3_1.default("example.db");
 app.use(body_parser_1.default.json());
@@ -26,7 +28,7 @@ app.post("/api/users/login", (req, res) => {
         .get(parseInt(student_id, 10));
     if (!user) {
         const insertUser = db.prepare("INSERT INTO users (student_id, balance, possession_list, isAdmin) VALUES (?, ?, ?, ?)");
-        insertUser.run(parseInt(student_id, 10), 1000, JSON.stringify([]), 0);
+        insertUser.run(parseInt(student_id, 10), 100, JSON.stringify([]), 0);
         user = db
             .prepare("SELECT * FROM users WHERE student_id = ?")
             .get(parseInt(student_id, 10));
@@ -44,15 +46,26 @@ app.post("/api/admins/login", (req, res) => {
     const adminPassword = db
         .prepare("SELECT password FROM admin_passwords WHERE id = 1")
         .get();
+    let admin = db
+        .prepare("SELECT * FROM users WHERE student_id = ?")
+        .get(parseInt(admin_id, 10));
+    if (!admin) {
+        const insertUser = db.prepare("INSERT INTO users (student_id, balance, possession_list, isAdmin) VALUES (?, ?, ?, ?)");
+        insertUser.run(parseInt(admin_id, 10), 100, JSON.stringify([]), 1);
+        admin = db
+            .prepare("SELECT * FROM users WHERE student_id = ?")
+            .get(parseInt(admin_id, 10));
+    }
     if (adminPassword.password === password) {
-        const adminData = {
-            student_id: Number(admin_id),
-            balance: 0,
-            possession_list: [],
-            isAdmin: true,
-        };
-        console.log("Admin logged in:", adminData);
-        res.json(adminData);
+        // const adminData = {
+        //   student_id: Number(admin_id),
+        //   balance: 0,
+        //   possession_list: [],
+        //   isAdmin: true,
+        // };
+        admin.possession_list = JSON.parse(admin.possession_list);
+        console.log("Admin logged in:", admin);
+        res.json(admin);
     }
     else {
         console.log("Admin login failed: Unauthorized");
@@ -88,6 +101,19 @@ app.put("/api/users/:student_id", (req, res) => {
         return res.status(404).json({ error: "User not found or not updated" });
     }
     console.log("User updated:", student_id);
+    res.json({ success: true });
+});
+// ユーザー削除
+app.delete("/api/users/:student_id", (req, res) => {
+    const { student_id } = req.params;
+    console.log("Deleting user:", Number(student_id));
+    const deleteUser = db.prepare("DELETE FROM users WHERE student_id = ?");
+    const result = deleteUser.run(student_id);
+    if (result.changes === 0) {
+        console.log("User not found or not deleted:", student_id);
+        return res.status(404).json({ error: "User not found or not deleted" });
+    }
+    console.log("User deleted:", student_id);
     res.json({ success: true });
 });
 // 商品一覧取得
@@ -220,7 +246,11 @@ app.get("/api/items", (req, res) => {
     console.log("Items:", items);
     res.json(items);
 });
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+const options = {
+    key: fs_1.default.readFileSync("../certificates/localhost+2-key.pem"),
+    cert: fs_1.default.readFileSync("../certificates/localhost+2.pem"),
+};
+const PORT = parseInt(process.env.PORT || "3000", 10);
+https_1.default.createServer(options, app).listen(PORT, "0.0.0.0", () => {
     console.log(`Server is running on port ${PORT}`);
 });

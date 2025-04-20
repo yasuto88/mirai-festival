@@ -33,7 +33,18 @@ const BuyPagePresenter: React.FC<Props> = ({
         <Input
           type="number"
           value={quantity}
-          onChange={(e) => setQuantity(Number(e.target.value))}
+          onChange={(e) => {
+            const value = parseInt(e.target.value);
+            if (value < 1) {
+              setQuantity(0);
+            } else if (isNaN(value)) {
+              e.preventDefault()
+              return
+            }
+            else {
+              setQuantity(value);
+            }
+          }}
         />
         <Button onClick={handleAddItem}>購入</Button>
       </>
